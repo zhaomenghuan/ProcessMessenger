@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.com.agree.sdk.messenger.MainActivity">
+    tools:context="cn.com.agree.app.messenger.client.MainActivity">
 
     <Button
         android:id="@+id/sendInnerMessage"
@@ -12,4 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="应用内发送消息" />
+
+    <Button
+        android:id="@+id/sendOtherAPPMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="应用间发送消息" />
 </LinearLayout>

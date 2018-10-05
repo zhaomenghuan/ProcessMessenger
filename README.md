@@ -11,10 +11,13 @@ ProcessMessenger.init(this);
 第二步，订阅消息和取消订阅：
 
 订阅消息：
-```java
 
+```java
 ProcessMessenger.subscribe(String key, MessageCallback callback);
-// 实例
+```
+
+实例：
+```java
 ProcessMessenger.subscribe("service", new MessageCallback() {
     @Override
     public void onReceive(Bundle data) {

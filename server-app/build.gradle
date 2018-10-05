@@ -5,7 +5,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "cn.com.agree.app.messenger.client"
+        applicationId "cn.com.agree.app.messenger.server"
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 1

@@ -9,10 +9,12 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 public class BinderPool extends Service {
+    private static String TAG = BinderPool.class.getName();
     private static ConcurrentHashMap<Integer, Messenger> mMessageMap = new ConcurrentHashMap<>();
     private static Messenger messenger;
     private static Handler handler;
@@ -33,7 +35,7 @@ public class BinderPool extends Service {
                     break;
                 case Constant.SEND_MSG_TO_TARGET:
                     // 要发送的消息
-                    sendMessage(msg);
+                    sendServiceMessage(msg);
                     break;
                 case Constant.UNSUBSCRIBE:
                     mMessageMap.remove(key);
@@ -43,8 +45,9 @@ public class BinderPool extends Service {
         }
     }
 
-    private static void sendMessage(Message msg) {
+    private static void sendServiceMessage(Message msg) {
         try {
+            Log.i(TAG, msg.toString());
             Message msgToClient = Message.obtain(msg);
             for (Messenger messenger : mMessageMap.values()) {
                 // 发送消息
@@ -77,7 +80,7 @@ public class BinderPool extends Service {
                 Message message = Message.obtain(handler, Constant.SEND_MSG_TO_TARGET);
                 message.replyTo = messenger;
                 message.setData(extras);
-                sendMessage(message);
+                sendServiceMessage(message);
             }
         }
         return START_NOT_STICKY;

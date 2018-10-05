@@ -1,1 +1,3 @@
-include ':client-app', ':process-messenger'
+include ':client-app',
+        ':server-app',
+        ':process-messenger'
