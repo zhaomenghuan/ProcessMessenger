@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.com.agree.sdk.messenger">
+    <application>
+        <service
+            android:name="cn.com.agree.sdk.messenger.BinderPool"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.messenger" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
